@@ -14,7 +14,7 @@ public class HelloController {
         p.setFirstName("Bryan");
         p.setLastName("Romero");
         model.addAttribute("persona", p);
-        model.addAttribute("name", "Hola desde un controller");
+        model.addAttribute("name", "desde un controller");
         return "mypagina";
     }
 

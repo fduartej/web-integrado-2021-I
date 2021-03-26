@@ -1,6 +1,14 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+	<title>.:: Saludo ::.</title>
+</head>
 <body>
-        <p th:text="'Hello, ' + ${name} + '!'" />
-        <p th:text="'Hello, ' + ${persona.firstName} + '!'" />
+        <p th:text="'Hello,  ' + ${name} + '!'" /><br/>
+        <p th:text="'Hello2, ' + ${persona.firstName} + '!'" />
 </body>
 </html>
