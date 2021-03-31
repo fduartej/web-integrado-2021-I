@@ -1,4 +1,9 @@
 <html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Contact</title>
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
 <body>
     <h2>Contact</h2>
     <form th:object="${contact}" th:action="@{/contact/create}" method="post">
@@ -10,14 +15,11 @@
         <div class="col-sm-offset-2 col-sm-10">
           <button
             th:with="text='Add Contact'"
-            class="btn btn-default" type="submit" th:text="${text}">Add
+            class="btn btn-primary" type="submit" th:text="${text}">Add
             Contact</button>
         </div>
        </div>
     </form>
     <p th:text="${mensaje}" />
-    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-    <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
-    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
