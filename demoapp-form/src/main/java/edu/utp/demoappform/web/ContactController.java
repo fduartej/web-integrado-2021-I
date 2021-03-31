@@ -19,6 +19,8 @@ public class ContactController {
 
     @PostMapping("/contact/create")
     public String postSubmitForm(Model model ){
+        Contact contact = new Contact();
+        model.addAttribute("contact", contact);
         model.addAttribute("mensaje", "Se registro un contacto");
         return "contact/index";
     }
