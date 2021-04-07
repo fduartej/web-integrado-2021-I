@@ -3,36 +3,40 @@
 <head>
   <title>Contact</title>
   <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-datepicker/css/bootstrap-datepicker.css}"/>
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css}"/>
+  <link th:rel="stylesheet" th:href="@{webjars/font-awesome/css/all.css} "/>
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap-datepicker/js/bootstrap-datepicker.min.js}"></script>
 </head>
 
 <body>
   <h2>Contact</h2>
   <form th:object="${contact}" th:action="@{/contact/create}" method="post">
-    <div class="col-md-4 mt-5">
-      <p>
+    <div class="col-sm-2">
         <label for="name">Name</label>
         <input type="text" th:field="*{name}" />
-      </p>
-      <p>
+    </div>
+    <div class="col-sm-2">
         <label for="email">Email</label>
         <input type="text" th:field="*{email}" />
-      </p>
-      <p>
+    </div>
+    <div class="col-sm-2">
         <label for="phone">Phone</label>
         <input type="text" th:field="*{phone}" />
-      </p>
     </div>
-    <div class="col-md-4 mt-5">
+    <div class="col-sm-2">
       <label for="birthdate">Date of birth</label>
       <div class="input-group date">
-        <input type="text" class="form-control" id="birthdate" autocomplete="off" th:field="*{birtdate}" />
+        <input type="text" class="form-control" id="birtdate" autocomplete="off" th:field="*{birtdate}" />
         <div class="input-group-append">
           <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
         </div>
       </div>
     </div>
-    <div class="col-md-4 mt-5">
+    <div class="col-sm-2">
       <p>
         <label for="maritalStatus">Marital Status</label>
         <select id="maritalStatus" placeholder="MaritalStatus" autocomplete="off" class="form-control"
@@ -43,13 +47,13 @@
         </select>
       </p>
     </div>
-    <div class="col-md-4 mt-5">
+    <div class="col-sm-2">
       <p>
         <label for="childrens"># Childrens</label>
         <input type="text" th:field="*{childrens}" />
       </p>
     </div>
-    <div class="col-md-4 mt-5">
+    <div class="col-sm-2">
       <div class="custom-control custom-radio custom-control-inline">
         <input type="radio" id="gender" name="gender" class="custom-control-input" 
               value="Male" th:field="*{gender}">
@@ -69,6 +73,13 @@
     </div>
   </form>
   <p th:text="${mensaje}" />
+
+  <script>
+    $('.input-group.date').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+ </script>
 </body>
 
 </html>
