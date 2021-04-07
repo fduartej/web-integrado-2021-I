@@ -1,25 +1,74 @@
 <html xmlns:th="https://www.thymeleaf.org">
+
 <head>
   <title>Contact</title>
   <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </head>
+
 <body>
-    <h2>Contact</h2>
-    <form th:object="${contact}" th:action="@{/contact/create}" method="post">
-       <div class="form-group has-feedback">
-        <input type="text" th:field="*{name}"/>
-        <input type="text" th:field="*{email}"/>
-       </div>
-       <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button
-            th:with="text='Add Contact'"
-            class="btn btn-primary" type="submit" th:text="${text}">Add
-            Contact</button>
+  <h2>Contact</h2>
+  <form th:object="${contact}" th:action="@{/contact/create}" method="post">
+    <div class="col-md-4 mt-5">
+      <p>
+        <label for="name">Name</label>
+        <input type="text" th:field="*{name}" />
+      </p>
+      <p>
+        <label for="email">Email</label>
+        <input type="text" th:field="*{email}" />
+      </p>
+      <p>
+        <label for="phone">Phone</label>
+        <input type="text" th:field="*{phone}" />
+      </p>
+    </div>
+    <div class="col-md-4 mt-5">
+      <label for="birthdate">Date of birth</label>
+      <div class="input-group date">
+        <input type="text" class="form-control" id="birthdate" autocomplete="off" th:field="*{birtdate}" />
+        <div class="input-group-append">
+          <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
         </div>
-       </div>
-    </form>
-    <p th:text="${mensaje}" />
+      </div>
+    </div>
+    <div class="col-md-4 mt-5">
+      <p>
+        <label for="maritalStatus">Marital Status</label>
+        <select id="maritalStatus" placeholder="MaritalStatus" autocomplete="off" class="form-control"
+            th:field="*{maritalStatus}">
+            <option value="Married">Married</option>
+            <option value="Single">Single</option>
+            <option value="Divored">Divorced</option>
+        </select>
+      </p>
+    </div>
+    <div class="col-md-4 mt-5">
+      <p>
+        <label for="childrens"># Childrens</label>
+        <input type="text" th:field="*{childrens}" />
+      </p>
+    </div>
+    <div class="col-md-4 mt-5">
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="gender" name="gender" class="custom-control-input" 
+              value="Male" th:field="*{gender}">
+        <label class="custom-control-label" for="gender">Male</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="gender" name="gender" class="custom-control-input" 
+              value="Female" th:field="*{gender}">
+        <label class="custom-control-label" for="gender">Female</label>
+      </div>      
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button th:with="text='Add Contact'" class="btn btn-primary" type="submit" th:text="${text}">Add
+          Contact</button>
+      </div>
+    </div>
+  </form>
+  <p th:text="${mensaje}" />
 </body>
+
 </html>

@@ -10,7 +10,7 @@ import edu.utp.demoappform.model.Contact;
 @Controller
 public class ContactController {
 
-    @GetMapping("/contact")
+    @GetMapping("/")
     public String contact(Model model){
         Contact contact = new Contact();
         model.addAttribute("contact", contact);
