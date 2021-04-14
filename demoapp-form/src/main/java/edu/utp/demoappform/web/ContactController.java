@@ -26,8 +26,8 @@ public class ContactController {
         listContacto.add(contact1);
 
         Contact contact2 = new Contact();
-        contact2.setName("jhon");
-        contact2.setEmail("jhon@gmail.com");
+        contact2.setName("jhon1");
+        contact2.setEmail("jhon1@gmail.com");
         listContacto.add(contact2);
 
         model.addAttribute("contactos",listContacto);
