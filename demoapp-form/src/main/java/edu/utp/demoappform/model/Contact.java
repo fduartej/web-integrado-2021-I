@@ -2,9 +2,11 @@ package edu.utp.demoappform.model;
 
 import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
+import javax.validation.constraints.NotNull;
 
 
 public class Contact {
+    @NotNull
     private String name;
     private String email;
     private String phone; 
