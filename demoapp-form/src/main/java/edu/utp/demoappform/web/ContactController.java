@@ -12,24 +12,20 @@ import org.springframework.validation.BindingResult;
 import javax.validation.Valid;
 import java.util.*;
 
+import edu.utp.demoappform.repository.ContactRepository;
 @Controller
 public class ContactController {
 
     private static String MODEL_CONTACT="contact";
+    private final ContactRepository contactsData;
+
+    public ContactController(ContactRepository contactsData){
+        this.contactsData = contactsData;
+    }
 
     @GetMapping("/")
     public String contact(Model model){
-        Contact contact1 = new Contact();
-        contact1.setName("jhon");
-        contact1.setEmail("jhon@gmail.com");
-        List<Contact> listContacto =new ArrayList<Contact>();
-        listContacto.add(contact1);
-
-        Contact contact2 = new Contact();
-        contact2.setName("jhon1");
-        contact2.setEmail("jhon1@gmail.com");
-        listContacto.add(contact2);
-
+        List<Contact> listContacto = this.contactsData.findAll();
         model.addAttribute("contactos",listContacto);
         return "contact/index";
     }

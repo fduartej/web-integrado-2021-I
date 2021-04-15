@@ -4,16 +4,31 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.validation.constraints.NotNull;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 
+@Entity
+@Table(name = "t_contact")
 public class Contact {
+    @Id
+	private Integer id;
     @NotNull
     private String name;
     private String email;
+
+    @Transient
     private String phone; 
+    
     @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Transient
     private Date birtdate; //Fecha
+    @Transient
     private String gender; //Radio
+    @Transient
     private String maritalStatus; //List Box
+    @Transient
     private Integer childrens; //Numero
 
     public String getPhone() {
