@@ -27,7 +27,7 @@
           <tbody>
             <tr th:each="contacto : ${contactos}">
               <td>
-                <a th:href="@{'/contact/__${contact.id}__/edit'}"
+                <a th:href="@{'/contact/edit/__${contacto.id}__'}"
   			           class="btn btn-info" role="button">Edit</a>
               </td>
               <td th:text="${contacto.name}"></td>

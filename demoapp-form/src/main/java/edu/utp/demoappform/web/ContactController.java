@@ -4,13 +4,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import edu.utp.demoappform.model.Contact;
 
 import org.springframework.validation.BindingResult;
 
 import javax.validation.Valid;
-import java.util.*;
+import java.util.List;
+
 
 import edu.utp.demoappform.repository.ContactRepository;
 @Controller
@@ -49,5 +51,25 @@ public class ContactController {
         }
         return "contact/create";
     }
+
+    @GetMapping("/contact/edit/{id}")
+    public String edit(@PathVariable("id") int id, 
+        Model model){
+        Contact contact = this.contactsData.getOne(id);
+        model.addAttribute(MODEL_CONTACT, contact);
+        return "contact/edit";
+    }  
+
+    @PostMapping("/contact/edit")
+	public String update(
+			@Valid Contact contact,
+			BindingResult bindingResult
+			){
+		if(bindingResult.hasFieldErrors()) {
+			return "redirect:/contact/edit/{id}";
+		}
+		this.contactsData.save(contact);
+		return "redirect:/";
+	}
     
 }
