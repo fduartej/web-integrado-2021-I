@@ -19,12 +19,17 @@
         <table id="example" class="table table-bordered table-responsive" style="width: 100%">
           <thead>
             <tr>
+              <th>#</th>
               <th>Name</th>
               <th>Email</th>
             </tr>
           </thead>
           <tbody>
             <tr th:each="contacto : ${contactos}">
+              <td>
+                <a th:href="@{'/contact/__${contact.id}__/edit'}"
+  			           class="btn btn-info" role="button">Edit</a>
+              </td>
               <td th:text="${contacto.name}"></td>
               <td th:text="${contacto.email}"></td>
             </tr>

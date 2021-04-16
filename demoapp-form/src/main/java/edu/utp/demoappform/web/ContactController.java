@@ -43,7 +43,7 @@ public class ContactController {
         if(result.hasFieldErrors()) {
             model.addAttribute("mensaje", "No se registro un contacto");
         }else{
-            objContact.setChildrens(objContact.getChildrens());
+            this.contactsData.save(objContact);
             model.addAttribute(MODEL_CONTACT, objContact);
             model.addAttribute("mensaje", "Se registro un contacto");
         }
