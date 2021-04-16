@@ -29,6 +29,8 @@
               <td>
                 <a th:href="@{'/contact/edit/__${contacto.id}__'}"
   			           class="btn btn-info" role="button">Edit</a>
+                <a th:href="@{'/contact/delete/__${contacto.id}__'}"
+  			           class="btn btn-info" role="button">Delete</a>
               </td>
               <td th:text="${contacto.name}"></td>
               <td th:text="${contacto.email}"></td>

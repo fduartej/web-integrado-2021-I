@@ -49,7 +49,7 @@ public class ContactController {
             model.addAttribute(MODEL_CONTACT, objContact);
             model.addAttribute("mensaje", "Se registro un contacto");
         }
-        return "contact/create";
+        return "redirect:/";
     }
 
     @GetMapping("/contact/edit/{id}")
@@ -71,5 +71,13 @@ public class ContactController {
 		this.contactsData.save(contact);
 		return "redirect:/";
 	}
+
+    @GetMapping("/contact/delete/{id}")
+    public String delete(@PathVariable("id") int id, 
+        Model model){
+        Contact contact = this.contactsData.getOne(id);
+        this.contactsData.delete(contact);
+        return "redirect:/";
+    }  
     
 }
